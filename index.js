@@ -1,6 +1,6 @@
 let hands = ["rock", "paper", "scissors"]
-let playerSelection = windowPrompt()
-let computerSelection = computerPlay()
+let playerScore = 0
+let computerScore = 0
 
 // // function that makes the computer play 1 of 3 hands
 function computerPlay() {
@@ -15,28 +15,37 @@ function userInput() {
     console.log(input)
 }
 
-
-// console.log(computerPlay())
-
-// const playerSelection = "Rock" //.toLowerCase
-
-
-function playRound(playerSelection, computerSelection) {
-    // console.log(playerSelection)
-    // console.log(computerSelection)
-    if (playerSelection === "Rock" && computerSelection === "Scissors") {
-        console.log("You Win! Rock beats Scissors")
-    } else if (playerSelection === "Paper" && computerSelection === "Rock") {
-        console.log("You Win! Paper beats Rock")
-    } else if (playerSelection === "Scissors" && computerSelection === "Paper"){
-        console.log("You Win! Scissors beats Paper")
-    } else if (playerSelection == computerSelection) {
-        console.log("It's a tie!")
-    } else {
-        console.log("You lose!")
+// // function that plays a single round of Rock Paper Scissors. 
+function playRound() {
+    let computerSelection = computerPlay()
+    console.log(computerSelection)
+    let playerSelection = input
+    if (playerSelection === "rock" && computerSelection === "rock") {
+        return "it's a tie(rock)"
+    } else if (playerSelection === "rock" && computerSelection === "paper") {
+        computerScore = ++computerScore
+        return "You lost! Paper beats Rock!"
+    } else if (playerSelection === "rock" && computerSelection === "scissors") {
+        playerScore = ++playerScore
+        return "You win! Rock beats Scissors!"
+    } else if (playerSelection === "paper" && computerSelection === "rock") {
+        playerScore = ++playerScore
+        return "You win! Paper beats Rock!"
+    } else if (playerSelection === "paper" && computerSelection === "paper") {
+        return "it's a tie(paper)"
+    } else if (playerSelection === "paper" && computerSelection === "scissors") {
+        computerScore = ++computerScore
+        return "You lost! Scissors beats Paper!"
+    } else if (playerSelection === "scissors" && computerSelection === "rock") {
+        computerScore = ++computerScore
+        return "You lost! Rock beats Scissors!"
+    } else if (playerSelection === "scissors" && computerSelection === "paper") {
+        playerScore = ++playerScore
+        return "You win! Scissors beats Paper!"
+    } else if (playerSelection === "scissors" && computerSelection === "scissors") {
+        return "it's a tie(Scissors)"
     }
 }
-
 
 function game() {
     // for(let i = 0; i < 5; i++) {
