@@ -47,13 +47,26 @@ function playRound() {
     }
 }
 
-function game() {
-    // for(let i = 0; i < 5; i++) {
-    //     return playRound(i)
-//     }
-// }
-playRound()
+// // function that decides the winner of the round
+function decideWinner() {
+    if (playerScore > computerScore) {
+        console.log("You won the round!")
+    } else if (playerScore < computerScore) {
+        console.log("You lost the round!")
+    } else {
+        console.log("This round is a tie!")
+    }
 }
-// console.log(playRound(playerSelection, computerSelection))
-game();
+
+// // function that creates 5 rounds of rps 
+function game() {
+    for (let i = 0; i < 5; i++) {
+        userInput()
+        console.log(playRound())
+        console.log("Player: " + playerScore + " " + "Computer: " + computerScore)
+    }
+    decideWinner()
+    playerScore = 0
+    computerScore = 0
+}
 
