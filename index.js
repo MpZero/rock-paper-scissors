@@ -21,7 +21,7 @@ function playRound() {
     console.log(computerSelection)
     let playerSelection = input
     if (playerSelection === "rock" && computerSelection === "rock") {
-        return "it's a tie(rock)"
+        return "it's a tie(Rock)"
     } else if (playerSelection === "rock" && computerSelection === "paper") {
         computerScore = ++computerScore
         return "You lost! Paper beats Rock!"
@@ -32,7 +32,7 @@ function playRound() {
         playerScore = ++playerScore
         return "You win! Paper beats Rock!"
     } else if (playerSelection === "paper" && computerSelection === "paper") {
-        return "it's a tie(paper)"
+        return "it's a tie(Paper)"
     } else if (playerSelection === "paper" && computerSelection === "scissors") {
         computerScore = ++computerScore
         return "You lost! Scissors beats Paper!"
