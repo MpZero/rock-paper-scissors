@@ -9,17 +9,17 @@ function computerPlay() {
 }
 
 // // function that gets the user input
-function userInput() {
-    input = prompt("Type 'Rock', 'Paper' or 'Scissors'")
-    input = input.toLowerCase()
-    console.log(input)
-}
+// function userInput() {
+//     input = prompt("Type 'Rock', 'Paper' or 'Scissors'")
+//     input = input.toLowerCase()
+//     console.log(input)
+// }
 
 // // function that plays a single round of Rock Paper Scissors. 
 function playRound() {
     let computerSelection = computerPlay()
     console.log(computerSelection)
-    let playerSelection = input
+    let playerSelection = document.querySelector("#btn")
     if (playerSelection === "rock" && computerSelection === "rock") {
         return "it's a tie(Rock)"
     } else if (playerSelection === "rock" && computerSelection === "paper") {
@@ -47,7 +47,7 @@ function playRound() {
     }
 }
 
-// // function that decides the winner of the round
+// function that decides the winner of the round
 function decideWinner() {
     if (playerScore > computerScore) {
         console.log("You won the round!")
@@ -58,15 +58,27 @@ function decideWinner() {
     }
 }
 
+const buttons = document.querySelectorAll("button")
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+       let playerSelection = button.innerText.toLowerCase()
+    //    console.log(button.innerText.toLowerCase())
+        playRound()
+    })
+})
+
+// let scoreEl = document.getElementById("score-el");
+// scoreEl.textContent = "Player Score: " + playerScore + " " + "Computer Score: " + computerScore
+
 // // function that creates 5 rounds of rps 
-function game() {
-    for (let i = 0; i < 5; i++) {
-        userInput()
-        console.log(playRound())
-        console.log("Player: " + playerScore + " " + "Computer: " + computerScore)
-    }
-    decideWinner()
-    playerScore = 0
-    computerScore = 0
-}
+// function game() {
+//     for (let i = 0; i < 5; i++) {
+//         userInput()
+//         console.log(playRound())
+//         console.log("Player: " + playerScore + " " + "Computer: " + computerScore)
+//     }
+//     decideWinner()
+//     playerScore = 0
+//     computerScore = 0
+// }
 
