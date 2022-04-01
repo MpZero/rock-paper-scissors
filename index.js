@@ -7,19 +7,29 @@ function computerPlay() {
     let randomIndex = Math.floor(Math.random() * 3)
     return hands[randomIndex]
 }
+let playerSelection = ''
+const buttons = document.querySelectorAll("#btn")
+
+// // add click listener in each button, get the text inside the buttons, play 1 round of rps
+buttons.forEach((button) => {
+    button.addEventListener('click', (e) => {
+
+        playerSelection = e.target.innerText.toLowerCase()
+        playRound()
+    })
+})
 
 // // function that gets the user input
-// function userInput() {
-//     input = prompt("Type 'Rock', 'Paper' or 'Scissors'")
-//     input = input.toLowerCase()
-//     console.log(input)
-// }
+function userInput() {
+    return playerSelection
+}
 
 // // function that plays a single round of Rock Paper Scissors. 
 function playRound() {
     let computerSelection = computerPlay()
+    console.log(playerSelection)
+    playerSelection = userInput()
     console.log(computerSelection)
-    let playerSelection = document.querySelector("#btn")
     if (playerSelection === "rock" && computerSelection === "rock") {
         return "it's a tie(Rock)"
     } else if (playerSelection === "rock" && computerSelection === "paper") {
@@ -58,27 +68,20 @@ function decideWinner() {
     }
 }
 
-const buttons = document.querySelectorAll("button")
-buttons.forEach((button) => {
-    button.addEventListener('click', () => {
-       let playerSelection = button.innerText.toLowerCase()
-    //    console.log(button.innerText.toLowerCase())
-        playRound()
-    })
-})
+
 
 // let scoreEl = document.getElementById("score-el");
 // scoreEl.textContent = "Player Score: " + playerScore + " " + "Computer Score: " + computerScore
 
-// // function that creates 5 rounds of rps 
-// function game() {
-//     for (let i = 0; i < 5; i++) {
-//         userInput()
-//         console.log(playRound())
-//         console.log("Player: " + playerScore + " " + "Computer: " + computerScore)
-//     }
-//     decideWinner()
-//     playerScore = 0
-//     computerScore = 0
-// }
+// function that creates 5 rounds of rps 
+function game() {
+    for (let i = 0; i < 5; i++) {
+        // userInput()
+        console.log(playRound())
+        console.log("Player: " + playerScore + " " + "Computer: " + computerScore)
+    }
+    decideWinner()
+    playerScore = 0
+    computerScore = 0
+}
 
